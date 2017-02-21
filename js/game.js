@@ -12,8 +12,9 @@
         this.hero = null;
         // 游戏的资源（图片）
         this.imgSrc = ['birds', 'land', 'sky', 'pipe1', 'pipe2'];
-
+        this.time=null;
         this.lastFrameTime = new Date();
+        this.origtime= this.lastFrameTime;
         this.curFrameTime = 0;
     };
 
@@ -78,6 +79,8 @@
                 )
             }
 
+            //绘制时间对象
+            this.roleList.push(new Fly.Timer({ctx:this.ctx,origtime:this.origtime}));
             // 创建陆地对象
             for (var i = 0; i < 4; i++) {
                 this.roleList.push(
